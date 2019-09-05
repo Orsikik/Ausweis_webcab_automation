@@ -1,6 +1,6 @@
 
-from Login_page import LoginPage
-from Main_page import MainPage
+from login_page import LoginPage
+from main_page import MainPage
 
 from browser_setting_up import browser
 

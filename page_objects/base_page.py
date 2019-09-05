@@ -1,5 +1,5 @@
 
-from Base_element import BaseElement
+from base_element import BaseElement
 
 
 class BasePage:
@@ -9,7 +9,6 @@ class BasePage:
     def __init__(self, driver):
         self.driver = driver
 
-    @property
     def go(self):
         self.driver.get(self.url)
 
