@@ -8,6 +8,7 @@ from selenium.webdriver.common.by import By
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support.expected_conditions import visibility_of_all_elements_located
 from selenium.webdriver.common.keys import Keys
+import os
 import time
 
 #Set-up
@@ -64,4 +65,14 @@ enter_button.click()
 #phone_field = browser.find_element_by_id('id_phone')
 # name_field.send_keys(Keys.ENTER)
 
-#TODO: Change profile photo
+
+#Profile (change photo)
+imagepath = os.path.abspath('//home/ors/Pictures/download.jpeg')
+photo_uploader = browser.find_element_by_css_selector("input[type='file']")
+# photo.click()
+photo_uploader.send_keys(imagepath)
+
+# ~/home/ors/Pictures/download.jpeg
+
+#TODO: How to do screens while testingо
+#TODO: HOw to pass the error
