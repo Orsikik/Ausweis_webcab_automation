@@ -27,6 +27,7 @@ class BaseElement(object):
     def send_keys(self, keys):
         element = WebDriverWait(self.driver, 5).until(EC.visibility_of_element_located(locator=self.locator))
         element.send_keys(keys)
+        return None
 
     @property
     def text(self):

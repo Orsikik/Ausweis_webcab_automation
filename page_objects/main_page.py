@@ -6,12 +6,26 @@ from selenium.webdriver.common.by import By
 class MainPage(BasePage):
     url = 'https://my.ausweis.io/ru/keys/my/'
 
-    def user_name_text(self):
-        return BaseElement(self.driver, by=By.XPATH, value='/html/body/div[1]/div[1]/div[3]/div/div[2]/a/text()')
+    def lock_tap_to_unlock_button(self):
+        return BaseElement(self.driver, by=By.XPATH, value="//h5[text()='TIW Main Entrance']/../../div[3]/div[2]/a")
 
-    def profile_options_list_opener(self):
-        return BaseElement(self.driver, by=By.XPATH, value="//a[@class='collapsed']")
+    def lock_drop_down_parameters_button(self):
+        return BaseElement(self.driver, by=By.XPATH, value="//h5[text()='TIW Main Entrance']/../../div/div/div/a")
 
-    def edit_profile_button(self):
-        return BaseElement(self.driver, by=By.XPATH, value="//a[text()='Edit Profile']")
+    def lock_share_a_key_button(self):
+        return BaseElement(self.driver, by=By.XPATH,
+                           value="//h5[text()='TIW Main Entrance']/../../div[1]/div/div/ul/li[1]")
+
+    def lock_settings_button(self):
+        return BaseElement(self.driver, by=By.XPATH,
+                           value="//h5[text()='TIW Main Entrance']/../../div[1]/div/div/ul/li[2]")
+
+    def owner_locks_button(self):
+        return BaseElement(self.driver, by=By.XPATH, value="//div[@class='nav-container nav-keys']/ul/li[1]/a")
+
+    def shared_keys_list_button(self):
+        return BaseElement(self.driver, by=By.XPATH, value="//div[@class='nav-container nav-keys']/ul/li[2]/a")
+
+
+
 
