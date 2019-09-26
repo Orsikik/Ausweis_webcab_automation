@@ -1,0 +1,10 @@
+action: py36, msg: getenv
+cwd: /home/ors/Dev/Selenium/Ausweis_webcab_automation/.tox
+cmd: /home/ors/Dev/Selenium/Ausweis_webcab_automation/venv/bin/python3.6 -m virtualenv --no-download --python /home/ors/Dev/Selenium/Ausweis_webcab_automation/venv/bin/python3.6 py36
+Already using interpreter /home/ors/Dev/Selenium/Ausweis_webcab_automation/venv/bin/python3.6
+Using real prefix '/usr'
+Path not in prefix '/home/ors/Dev/Selenium/Ausweis_webcab_automation/venv/include/python3.6m' '/usr'
+New python executable in /home/ors/Dev/Selenium/Ausweis_webcab_automation/.tox/py36/bin/python3.6
+Also creating executable in /home/ors/Dev/Selenium/Ausweis_webcab_automation/.tox/py36/bin/python
+Installing setuptools, pip, wheel...
+done.

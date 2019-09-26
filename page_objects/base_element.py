@@ -1,4 +1,4 @@
-
+from selenium.common.exceptions import TimeoutException
 from selenium.webdriver.support.wait import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 
@@ -22,7 +22,6 @@ class BaseElement(object):
     def click(self):
         element = WebDriverWait(self.driver, 5).until(EC.element_to_be_clickable(locator=self.locator))
         element.click()
-        return None
 
     def send_keys(self, keys):
         element = WebDriverWait(self.driver, 5).until(EC.visibility_of_element_located(locator=self.locator))
@@ -33,3 +32,20 @@ class BaseElement(object):
     def text(self):
         text = self.web_element.text
         return text
+
+    @property
+    def clear(self):
+        element = WebDriverWait(self.driver, 5).until(EC.visibility_of_element_located(locator=self.locator))
+        element.clear()
+        return None
+
+    def get_attribute(self, attr_value):
+        element = WebDriverWait(self.driver, 5).until(EC.visibility_of_element_located(locator=self.locator))
+        return element.get_attribute(attr_value)
+
+    @property
+    def is_displayed(self):
+        if self.web_elementq.is_displayed():
+            return True
+        else:
+            return False

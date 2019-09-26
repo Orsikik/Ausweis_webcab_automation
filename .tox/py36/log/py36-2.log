@@ -1,0 +1,15 @@
+action: py36, msg: installpkg
+cwd: /home/ors/Dev/Selenium/Ausweis_webcab_automation
+cmd: /home/ors/Dev/Selenium/Ausweis_webcab_automation/.tox/py36/bin/python -m pip install --exists-action w .tox/.tmp/package/1/Ausweis_webcab_automation-0.0.0.zip
+Processing ./.tox/.tmp/package/1/Ausweis_webcab_automation-0.0.0.zip
+Building wheels for collected packages: Ausweis-webcab-automation
+  Building wheel for Ausweis-webcab-automation (setup.py): started
+  Building wheel for Ausweis-webcab-automation (setup.py): finished with status 'done'
+  Created wheel for Ausweis-webcab-automation: filename=Ausweis_webcab_automation-0.0.0-cp36-none-any.whl size=8262 sha256=9c76640f03647216c7398646b11009915ac42886855b63580e3d122a84d99556
+  Stored in directory: /home/ors/.cache/pip/wheels/3f/71/24/3a0c01fc5a459adfb10100887597f96fd90eb0c58234e0d25c
+Successfully built Ausweis-webcab-automation
+Installing collected packages: Ausweis-webcab-automation
+  Found existing installation: Ausweis-webcab-automation 0.0.0
+    Not uninstalling ausweis-webcab-automation at /home/ors/Dev/Selenium/Ausweis_webcab_automation, outside environment /home/ors/Dev/Selenium/Ausweis_webcab_automation/.tox/py36
+    Can't uninstall 'Ausweis-webcab-automation'. No files were found to uninstall.
+Successfully installed Ausweis-webcab-automation-0.0.0

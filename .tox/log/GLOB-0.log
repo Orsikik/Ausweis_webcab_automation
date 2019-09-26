@@ -1,0 +1,72 @@
+action: GLOB, msg: packaging
+cwd: /home/ors/Dev/Selenium/Ausweis_webcab_automation
+cmd: /home/ors/Dev/Selenium/Ausweis_webcab_automation/venv/bin/python3.6 setup.py sdist --formats=zip --dist-dir /home/ors/Dev/Selenium/Ausweis_webcab_automation/.tox/dist
+running sdist
+running egg_info
+writing Ausweis_webcab_automation.egg-info/PKG-INFO
+writing dependency_links to Ausweis_webcab_automation.egg-info/dependency_links.txt
+writing top-level names to Ausweis_webcab_automation.egg-info/top_level.txt
+reading manifest file 'Ausweis_webcab_automation.egg-info/SOURCES.txt'
+writing manifest file 'Ausweis_webcab_automation.egg-info/SOURCES.txt'
+warning: sdist: standard file not found: should have one of README, README.rst, README.txt, README.md
+
+running check
+warning: check: missing required meta-data: url
+
+warning: check: missing meta-data: either (author and author_email) or (maintainer and maintainer_email) must be supplied
+
+creating Ausweis_webcab_automation-0.0.0
+creating Ausweis_webcab_automation-0.0.0/Ausweis_webcab_automation.egg-info
+creating Ausweis_webcab_automation-0.0.0/page_objects
+creating Ausweis_webcab_automation-0.0.0/test_cases
+copying files to Ausweis_webcab_automation-0.0.0...
+copying setup.py -> Ausweis_webcab_automation-0.0.0
+copying Ausweis_webcab_automation.egg-info/PKG-INFO -> Ausweis_webcab_automation-0.0.0/Ausweis_webcab_automation.egg-info
+copying Ausweis_webcab_automation.egg-info/SOURCES.txt -> Ausweis_webcab_automation-0.0.0/Ausweis_webcab_automation.egg-info
+copying Ausweis_webcab_automation.egg-info/dependency_links.txt -> Ausweis_webcab_automation-0.0.0/Ausweis_webcab_automation.egg-info
+copying Ausweis_webcab_automation.egg-info/top_level.txt -> Ausweis_webcab_automation-0.0.0/Ausweis_webcab_automation.egg-info
+copying page_objects/__init__.py -> Ausweis_webcab_automation-0.0.0/page_objects
+copying page_objects/base_element.py -> Ausweis_webcab_automation-0.0.0/page_objects
+copying page_objects/base_page.py -> Ausweis_webcab_automation-0.0.0/page_objects
+copying page_objects/change_password_page.py -> Ausweis_webcab_automation-0.0.0/page_objects
+copying page_objects/est_examples.py -> Ausweis_webcab_automation-0.0.0/page_objects
+copying page_objects/locks_activity_page.py -> Ausweis_webcab_automation-0.0.0/page_objects
+copying page_objects/login_page.py -> Ausweis_webcab_automation-0.0.0/page_objects
+copying page_objects/main_page.py -> Ausweis_webcab_automation-0.0.0/page_objects
+copying page_objects/notification_page.py -> Ausweis_webcab_automation-0.0.0/page_objects
+copying page_objects/profile_page.py -> Ausweis_webcab_automation-0.0.0/page_objects
+copying page_objects/share_key_page.py -> Ausweis_webcab_automation-0.0.0/page_objects
+copying page_objects/side_bar.py -> Ausweis_webcab_automation-0.0.0/page_objects
+copying page_objects/test_cases_login.py -> Ausweis_webcab_automation-0.0.0/page_objects
+copying test_cases/__init__.py -> Ausweis_webcab_automation-0.0.0/test_cases
+copying test_cases/test_login.py -> Ausweis_webcab_automation-0.0.0/test_cases
+Writing Ausweis_webcab_automation-0.0.0/setup.cfg
+creating /home/ors/Dev/Selenium/Ausweis_webcab_automation/.tox/dist
+creating '/home/ors/Dev/Selenium/Ausweis_webcab_automation/.tox/dist/Ausweis_webcab_automation-0.0.0.zip' and adding 'Ausweis_webcab_automation-0.0.0' to it
+adding 'Ausweis_webcab_automation-0.0.0'
+adding 'Ausweis_webcab_automation-0.0.0/test_cases'
+adding 'Ausweis_webcab_automation-0.0.0/page_objects'
+adding 'Ausweis_webcab_automation-0.0.0/Ausweis_webcab_automation.egg-info'
+adding 'Ausweis_webcab_automation-0.0.0/PKG-INFO'
+adding 'Ausweis_webcab_automation-0.0.0/setup.cfg'
+adding 'Ausweis_webcab_automation-0.0.0/setup.py'
+adding 'Ausweis_webcab_automation-0.0.0/test_cases/__init__.py'
+adding 'Ausweis_webcab_automation-0.0.0/test_cases/test_login.py'
+adding 'Ausweis_webcab_automation-0.0.0/page_objects/change_password_page.py'
+adding 'Ausweis_webcab_automation-0.0.0/page_objects/locks_activity_page.py'
+adding 'Ausweis_webcab_automation-0.0.0/page_objects/__init__.py'
+adding 'Ausweis_webcab_automation-0.0.0/page_objects/profile_page.py'
+adding 'Ausweis_webcab_automation-0.0.0/page_objects/test_cases_login.py'
+adding 'Ausweis_webcab_automation-0.0.0/page_objects/est_examples.py'
+adding 'Ausweis_webcab_automation-0.0.0/page_objects/base_element.py'
+adding 'Ausweis_webcab_automation-0.0.0/page_objects/notification_page.py'
+adding 'Ausweis_webcab_automation-0.0.0/page_objects/base_page.py'
+adding 'Ausweis_webcab_automation-0.0.0/page_objects/main_page.py'
+adding 'Ausweis_webcab_automation-0.0.0/page_objects/login_page.py'
+adding 'Ausweis_webcab_automation-0.0.0/page_objects/side_bar.py'
+adding 'Ausweis_webcab_automation-0.0.0/page_objects/share_key_page.py'
+adding 'Ausweis_webcab_automation-0.0.0/Ausweis_webcab_automation.egg-info/PKG-INFO'
+adding 'Ausweis_webcab_automation-0.0.0/Ausweis_webcab_automation.egg-info/top_level.txt'
+adding 'Ausweis_webcab_automation-0.0.0/Ausweis_webcab_automation.egg-info/dependency_links.txt'
+adding 'Ausweis_webcab_automation-0.0.0/Ausweis_webcab_automation.egg-info/SOURCES.txt'
+removing 'Ausweis_webcab_automation-0.0.0' (and everything under it)
