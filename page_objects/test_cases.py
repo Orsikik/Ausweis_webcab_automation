@@ -4,8 +4,8 @@ from selenium.webdriver.common.keys import Keys
 from pages import login_page, main_page, side_bar, profile_page, \
                   change_password_page, share_key_page, notification_page, activity_page, lock_page, edit_key_page
 from time import sleep, gmtime, strftime, time
-time_now = strftime("%Y-%m-%d %H:%M", gmtime(time() + 10800))
-time_plus_5_minutes = strftime("%Y-%m-%d %H:%M", gmtime(time() + 10800))
+from time_variables import time_now, time_plus_5_minutes, current_hour, current_round_minute
+
 
 
 
@@ -119,56 +119,24 @@ time_plus_5_minutes = strftime("%Y-%m-%d %H:%M", gmtime(time() + 10800))
 @mark.key_sharing
 class KeySharingTests():
 
-    # def test_unlimited_sharing(self, loging_in):
-    #     side_bar.share_a_key_button.click
-    #     share_key_page.email_field.send_keys("i.orsyk+12@ausweis.io")
-    #     share_key_page.lock_list.click
-    #     share_key_page.lock_list.send_keys(Keys.ARROW_DOWN)
-    #     share_key_page.lock_list.send_keys(Keys.ARROW_DOWN)
-    #     share_key_page.lock_list.send_keys(Keys.ARROW_DOWN)
-    #     share_key_page.lock_list.send_keys(Keys.ENTER)
-    #     share_key_page.driver.find_elements_by_xpath("//*[@id='div_id_limited']/div/div[1]/label/span/span[2]")[0].click()
-    #     share_key_page.share_key_button.click
-    #     assert lock_page.last_user.text == 'Auto Tester'
-    #
-    # def test_delete_shared_key(self):
-    #     lock_page.delete_last_shared_key.click
-    #     assert lock_page.last_user.text != 'Auto Tester'
-    #
-    # def test_share_limited_one_use_key(self, choose_lock, delete_lock):
-    #     share_key_page.driver.find_elements_by_xpath("//*[@id='div_id_limited']/div/div[1]/label/span/span[2]")[0].click()
-    #     share_key_page.driver.find_elements_by_xpath("//*[@id='div_id_one_time']/label/span/span[2]")[0].click()
-    #     sleep(1)
-    #     share_key_page.share_key_button.click
-    #     lock_page.edit_shared_key.click
-    #     assert edit_key_page.one_opening_checkbox.get_attribute('class') == "checkbox checked"
-    #
-    # def test_share_time_limits_key(self, choose_lock, delete_lock):
-    #     share_key_page.driver.find_elements_by_xpath("//*[@id='div_id_limited']/div/div[2]/label/span/span[2]")[0].click()
-    #     share_key_page.range_sharing_from_field.send_keys(time_now)
-    #     share_key_page.range_sharing_to_field.send_keys(time_plus_5_minutes)
-    #     share_key_page.share_key_button.click
-    #     lock_page.edit_shared_key.click
-    #     assert edit_key_page.limited_opening_checkbox.get_attribute('class') == "radio checked"
+    def test_unlimited_sharing(self, logging_in_main, choose_lock, share_unlimited_key):
+        assert lock_page.last_user.text == 'Auto Tester'
 
-    def test_share_schedule_key(self, loging_in, choose_lock):
-        share_key_page.driver.find_elements_by_xpath("/html/body/div[1]/div[2]/div[1]/div/div/div/div/div/form/"
-                                                           "div[7]/div/label/span/span[2]")[0].click()
-        share_key_page.schedule_days_check_box(3).click
-        share_key_page.schedule_start_field.click
-        share_key_page.set_start_h(5).click
-        share_key_page.ok_button_on_schedule_start_popup.click
-        share_key_page.set_start_m(10).click
-        share_key_page.ok_button_on_schedule_start_popup.click
-        share_key_page.schedule_end_field.click
-        share_key_page.set_start_h(6).click
-        share_key_page.ok_button_on_schedule_end_popup.click
-        # share_key_page.set_end_m(15).click
-        a = share_key_page.driver.find_elements_by_xpath("//div[@id='dtp_FsRHG']/div[ @class ='dtp-content']/div[@class='dtp-date-view']/div[3]/div[2]/div[2]/*/*/*[@id='m-28']")[0].click()
-        # for i in a:
-        #     i[0].click()
-        share_key_page.ok_button_on_schedule_end_popup.click
+    def test_delete_shared_key(self):
+        side_bar.my_locks_button.click
+        main_page.lock_drop_down_parameters_button.click
+        main_page.lock_settings_button.click
+        lock_page.sent_keys.click
+        lock_page.delete_last_shared_key.click
+        assert lock_page.last_user.text != 'Auto Tester'
 
-        # share_key_page.schedule_fields(12, 15, 'start')
-        # share_key_page.schedule_fields(12, 30, 'end')
+    def test_share_limited_one_use_key(self, choose_lock, share_one_use_key, delete_lock):
+        assert edit_key_page.one_opening_checkbox.get_attribute('class') == "checkbox checked"
+
+    def test_share_time_limit_key(self, choose_lock, share_time_limit_key, delete_lock):
+        assert edit_key_page.limited_opening_checkbox.get_attribute('class') == "radio checked"
+
+    def test_share_schedule_key(self, choose_lock, share_schedule_key, delete_lock):
+        assert edit_key_page.schedule_start_field.get_attribute('value') == f'{current_hour}:{current_round_minute}:00'
+
 

@@ -9,4 +9,4 @@ option.add_experimental_option("prefs", {
     "profile.default_content_setting_values.notifications": 2
 })
 
-browser = webdriver.Chrome(options=option, executable_path=r'/home/ors/Dev/Selenium/drivers/chromedriver.exe')
+browser = webdriver.Chrome(options=option)

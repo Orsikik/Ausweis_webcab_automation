@@ -360,6 +360,16 @@ class EditSharedKeyPage(BasePage):
         return BaseElement(self.driver, by=By.XPATH,
                            value="//*[@id='div_id_limited']/div/div[2]")
 
+    @property
+    def schedule_start_field(self):
+        return BaseElement(self.driver, by=By.XPATH,
+                           value="//*[@id='id_schedule-0-start']")
+
+    @property
+    def schedule_end_field(self):
+        return BaseElement(self.driver, by=By.XPATH,
+                           value="//*[@id='id_schedule-0-end']")
+
 
 
 login_page = LoginPage(browser)
