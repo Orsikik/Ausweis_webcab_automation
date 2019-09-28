@@ -4,7 +4,7 @@ from selenium import webdriver
 from selenium.webdriver.chrome.options import Options
 from browser_setting_up import browser
 from time import sleep
-from pages import login_page, side_bar, share_key_page, main_page, lock_page
+from pages import login_page, side_bar, share_key_page, main_page, lock_page, profile_page, change_password_page
 from selenium.webdriver.common.keys import Keys
 from time_variables import time_now, time_plus_5_minutes, current_hour, current_round_minute
 
@@ -102,9 +102,28 @@ def delete_lock():
     lock_page.sent_keys.click
     lock_page.delete_last_shared_key.click
 
+@fixture(scope='function')
+def tear_down_user_profile_settings():
+    yield
+    side_bar.profile_options_list_opener.click
+    side_bar.edit_profile_button.click
+    profile_page.name_field.clear
+    profile_page.name_field.send_keys("Orsyk Igor")
+    profile_page.phone_field.clear
+    profile_page.phone_field.send_keys("+380952183724")
+    profile_page.submit_button.click
+    profile_page.change_password_button.click
+    change_password_page.current_password_field.send_keys('PepsiCola1')
+    change_password_page.new_password_field.send_keys("pepsicola")
+    change_password_page.new_password_again_field.send_keys("pepsicola")
+    change_password_page.change_password_button.click
+    # TODO add pop up handler after the password change ( near the dropdown to exit)
 
-
-
+@fixture(scope='function')
+def exit_from_account():
+    yield
+    main_page.dropdown_to_exit_button.click
+    main_page.exit_button.click
 
 
 
