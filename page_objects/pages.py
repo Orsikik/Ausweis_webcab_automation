@@ -103,11 +103,31 @@ class MainPage(BasePage):
     def lock_settings_button(self):
         return BaseElement(self.driver, by=By.XPATH,
                            value="//h5[text()='auto t']/../../div[1]/div/div/ul/li[2]")
+    @property
+    def delete_lock(self):
+        return BaseElement(self.driver, by=By.XPATH,
+                           value="//*[@id='guest-list']/div/div/div[1]/div/div/ul/li/a")
+
+    @property
+    def confirm_lock_delete(self):
+        return BaseElement(self.driver, by=By.XPATH,
+                           value="/html/body/div[2]/div[2]/button[1]")
+
+    @property
+    def success_delete_popup(self):
+        return BaseElement(self.driver, by=By.XPATH,
+                           value="/html/body/div[2]/div[2]/h2")
+
+    @property
+    def invalid_key_popup(self):
+        return BaseElement(self.driver, by=By.XPATH,
+                           value="/html/body/div[2]/div[2]/h2")
 
     @property
     def owner_locks_button(self):
         return BaseElement(self.driver, by=By.XPATH, value="//div[@class='nav-container nav-keys']/ul/li[1]/a")
 
+    @property
     def shared_keys_list_button(self):
         return BaseElement(self.driver, by=By.XPATH, value="//div[@class='nav-container nav-keys']/ul/li[2]/a")
 

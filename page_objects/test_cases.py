@@ -24,7 +24,7 @@ from time_variables import time_now, time_plus_5_minutes, current_hour, current_
 #         login_page.enter_button.click
 #         assert browser.current_url == 'https://my.ausweis.io/ru/accounts/login/'
 #
-#     def test_login_success(self, logging_in_main):
+#     def test_login_success(self, logging_in_owner):
 #         assert browser.current_url == "https://my.ausweis.io/ru/keys/my/"
 
 
@@ -34,7 +34,7 @@ from time_variables import time_now, time_plus_5_minutes, current_hour, current_
 # @mark.edit_profile
 # class EditProfileTests:
 #
-#     def test_go_to_edit_profile(self, logging_in_main):
+#     def test_go_to_edit_profile(self, logging_in_owner):
 #         side_bar.profile_options_list_opener.click
 #         side_bar.edit_profile_button.click
 #         assert browser.current_url == "https://my.ausweis.io/ru/users/~update/"
@@ -69,25 +69,24 @@ from time_variables import time_now, time_plus_5_minutes, current_hour, current_
 #         login_page.enter_button.click
 #         assert browser.current_url == "https://my.ausweis.io/ru/keys/my/"
 
-@mark.lock_opening
-class LockFunctionsAndActivityTests:
-
-    def test_lock_opening(self, logging_in_main):
-        main_page.lock_tap_to_unlock_button.click
-        main_page.lock_ok_button_after_openning.click
-        assert browser.find_elements_by_class_name("sweet-confirm")[0].is_displayed() == False
-
-    def test_notification_appears_after_lock_opening(self):
-        side_bar.activity_button.click
-        sleep(0.5)
-        by_hum = activity_page.lock_last_notification.text
-        assert by_hum[23:28] == 'by me'
-
-
-# @mark.key_sharing
-# class KeySharingTests():
+# @mark.lock_opening
+# class LockFunctionsAndActivityTests:
 #
-#     def test_unlimited_sharing(self, logging_in_main, choose_lock, share_unlimited_key):
+#     def test_lock_opening(self, logging_in_owner, open_my_key):
+#         main_page.lock_ok_button_after_openning.click
+#         assert browser.find_elements_by_class_name("sweet-confirm")[0].is_displayed() == False
+#
+#     def test_notification_appears_after_lock_opening(self):
+#         side_bar.activity_button.click
+#         sleep(0.5)
+#         by_hum = activity_page.lock_last_notification.text
+#         assert by_hum[23:28] == 'by me'
+
+
+@mark.key_sharing
+class KeySharingTests():
+
+#     def test_unlimited_sharing(self, logging_in_owner, choose_lock, share_unlimited_key):
 #         assert lock_page.last_user.text == 'Auto Tester'
 #
 #     def test_delete_shared_key(self):
@@ -98,13 +97,65 @@ class LockFunctionsAndActivityTests:
 #         lock_page.delete_last_shared_key.click
 #         assert lock_page.last_user.text != 'Auto Tester'
 #
-#     def test_share_limited_one_use_key(self, choose_lock, share_one_use_key, delete_lock):
+#     def test_share_limited_one_use_key(self, choose_lock, share_one_use_key, delete_key_from_owner):
 #         assert edit_key_page.one_opening_checkbox.get_attribute('class') == "checkbox checked"
 #
-#     def test_share_time_limit_key(self, choose_lock, share_time_limit_key, delete_lock):
+#     def test_share_time_limit_key(self, choose_lock, share_time_limit_key, delete_key_from_owner):
 #         assert edit_key_page.limited_opening_checkbox.get_attribute('class') == "radio checked"
 #
-#     def test_share_schedule_key(self, choose_lock, share_schedule_key, delete_lock):
+#     def test_share_schedule_key(self, choose_lock, share_schedule_key, delete_key_from_owner):
 #         assert edit_key_page.schedule_start_field.get_attribute('value') == f'{current_hour}:{current_round_minute}:00'
 
+    # def test_check_sharing_unlimited_key_from_guest_account(self, logging_in_owner, choose_lock, share_unlimited_key,
+    #                                                         exit_from_account_before, logging_in_quest):
+    #     main_page.shared_keys_list_button.click
+    #     main_page.lock_tap_to_unlock_button.click
+    #     main_page.lock_ok_button_after_openning.click
+    #     assert browser.find_elements_by_class_name("sweet-confirm")[0].is_displayed() == False
+    #
+    # def test_check_activity_after_guest_open_lock(self):
+    #     side_bar.activity_button.click
+    #     sleep(0.5)
+    #     by_hum = activity_page.lock_last_notification.text
+    #     assert by_hum[23:28] == 'by me'
+    #
+    # def test_delete_lock_from_guest(self, delete_key_from_guest_before, exit_from_account_after):
+    #     assert main_page.success_delete_popup.text == "Deleted!"
+    #     main_page.lock_ok_button_after_openning.click
 
+    # def test_open_shared_one_use_key_first_time(self, logging_in_owner, choose_lock, share_one_use_key,
+    #                                                       exit_from_account_before, logging_in_quest, open_shared_key):
+    #
+    #
+    #     main_page.lock_ok_button_after_openning.click
+            #TODO add assertion check ( also add pop up one use pop up handler)
+    #
+    # def test_open_shared_one_use_key_second_time(self, open_shared_key):
+    #     pass
+
+
+    # def test_open_shared_time_limit_key_before_permited_period(self, logging_in_owner, choose_lock, share_time_limit_key_plus_2_and_plus_3,
+    #                                       exit_from_account_before, logging_in_quest, open_shared_key):
+    #
+    #     assert main_page.invalid_key_popup.text == "Key is invalid"
+    #     main_page.lock_ok_button_after_openning.click
+    #     sleep(120)
+    #
+    # def test_open_shared_time_limit_key_durring_permited_period(self, open_shared_key):
+    #     pass
+    #     # assert
+    #     #TODO add succsessfull opening assertion
+    #     # sleep(60)
+    #
+    # def test_open_shared_time_limit_key_after_permited_period(self, open_shared_key,
+#                                                       delete_key_from_guest_after, exit_from_account_after):
+    #     assert main_page.invalid_key_popup.text == "Key is invalid"
+    #     main_page.lock_ok_button_after_openning.click
+
+    def test_open_shared_schedule_key_before_permitted_period(self, logging_in_owner, choose_lock, share_schedule_key,
+                                                              exit_from_account_before, logging_in_quest, open_shared_key):
+        assert True
+
+    def test_open_shared_schedule_key_during_permitted_period(self, open_shared_key, delete_key_from_guest_after):
+
+        assert True
