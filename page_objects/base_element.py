@@ -20,7 +20,7 @@ class BaseElement(object):
 
     @property
     def click(self):
-        element = WebDriverWait(self.driver, 5).until(EC.element_to_be_clickable(locator=self.locator))
+        element = WebDriverWait(self.driver, 10).until(EC.element_to_be_clickable(locator=self.locator))
         element.click()
 
     def send_keys(self, keys):
@@ -49,3 +49,6 @@ class BaseElement(object):
             return True
         else:
             return False
+
+    def driver_stop(self):
+        return self.driver.s

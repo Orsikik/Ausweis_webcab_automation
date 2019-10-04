@@ -90,6 +90,11 @@ class MainPage(BasePage):
         return BaseElement(self.driver, by=By.CLASS_NAME, value="sweet-confirm")
 
     @property
+    def lock_is_opening_popup(self):
+        return BaseElement(self.driver, by=By.XPATH,
+                           value="/html/body/div[2]/div[2]/h2")
+
+    @property
     def lock_drop_down_parameters_button(self):
         return BaseElement(self.driver, by=By.XPATH,
                            value="//h5[text()='auto t']/../div/div/a/i")
@@ -111,15 +116,15 @@ class MainPage(BasePage):
     @property
     def confirm_lock_delete(self):
         return BaseElement(self.driver, by=By.XPATH,
-                           value="/html/body/div[2]/div[2]/button[1]")
+                           value="//button[text()='Yes, delete it!']")
 
     @property
     def success_delete_popup(self):
         return BaseElement(self.driver, by=By.XPATH,
-                           value="/html/body/div[2]/div[2]/h2")
+                           value="//button[text()='OK']")
 
     @property
-    def invalid_key_popup(self):
+    def key_popup_text(self):
         return BaseElement(self.driver, by=By.XPATH,
                            value="/html/body/div[2]/div[2]/h2")
 

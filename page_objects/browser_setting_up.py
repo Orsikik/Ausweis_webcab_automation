@@ -10,3 +10,4 @@ option.add_experimental_option("prefs", {
 })
 
 browser = webdriver.Chrome(options=option)
+

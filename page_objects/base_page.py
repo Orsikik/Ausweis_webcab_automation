@@ -19,6 +19,11 @@ class BasePage:
             by=by,
             value=value)
 
+    @property
+    def quit(self):
+        return self.driver.quit()
+
+
 
 
 
