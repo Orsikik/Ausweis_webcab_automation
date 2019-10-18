@@ -1,7 +1,4 @@
 from pytest import fixture
-from selenium import webdriver
-# from config_example import Config
-from selenium.webdriver.chrome.options import Options
 from browser_setting_up import browser
 from time import sleep
 from pages import login_page, side_bar, share_key_page, main_page, lock_page, profile_page, change_password_page
